@@ -1,0 +1,7 @@
+﻿  2dapp.cc
+  config.cc
+  app.cc
+  window.cc
+  Generating Code...
+config.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  gscept-lib.vcxproj -> C:\Users\sebastian\source\repos\lab4\vstudio\x64\Debug\gscept-lib.lib

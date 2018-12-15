@@ -1,0 +1,3 @@
+﻿  Square.cpp
+c:\users\sebastian\source\repos\lab4\projects\assignment\code\matrix2d.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
+  AssignmentDemo.vcxproj -> C:\Users\sebastian\source\repos\lab4\vstudio\..\bin\AssignmentDemo.exe
