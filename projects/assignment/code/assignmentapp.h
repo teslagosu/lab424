@@ -9,7 +9,7 @@
 #include "core/app.h"
 #include "render/window.h"
 #include "2d/2dapp.h"
-
+#include "Shape.h"
 
 namespace Assignment
 {
@@ -24,7 +24,7 @@ public:
 
 	/// destructor
 	~AssignmentApp();
-
+	void KeyEvent(int key, int action, int modifier);
 	/// initialize, create shapes etc
 	void Setup();
 
@@ -34,6 +34,9 @@ public:
 	/// line drawing function
 	static void DrawLine(const LineData & line);
 
+	std::vector<Shape*> getShapeList();
+	int getIndex(int num);
+
 private:
 
 	/// constructor hidden because it is a singleton
@@ -42,6 +45,7 @@ private:
 	AssignmentApp(AssignmentApp const &);
 	/// also hidden because of the singleton
 	void operator=(AssignmentApp const &);
+	std::vector<Shape*> shapeList;
 
 };
 

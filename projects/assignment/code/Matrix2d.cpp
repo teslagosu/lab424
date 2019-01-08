@@ -88,13 +88,15 @@ void Matrix2d::rotate(float array[2][2]) {
 	
 }
 
-Matrix2d Matrix2d::rotate2(const float radians) {
+ Matrix2d Matrix2d:: rotate2(const float radians) {
 	
 	Matrix2d result;
 	result.matrixArray[0][0] =  cos(radians);
 	result.matrixArray[0][1] =  sin(radians);
-	result.matrixArray[1][0] =  cos(radians);
-	result.matrixArray[1][1] =  sin(radians);
+	result.matrixArray[1][0] = -sin(radians);
+	result.matrixArray[1][1] = cos(radians);
+	
+		
 
 	return result;
 	
@@ -147,14 +149,6 @@ void Matrix2d::printTranspose() {
 void Matrix2d::printRotated() {
 
 }
-
-	
-	
-	
-
-	
-
-
 
 
 //getters and setters

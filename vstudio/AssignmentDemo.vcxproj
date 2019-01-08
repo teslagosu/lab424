@@ -126,19 +126,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\projects\assignment\code\assignmentapp.cc" />
+    <ClCompile Include="..\projects\assignment\code\Circle.cpp" />
     <ClCompile Include="..\projects\assignment\code\main.cc" />
     <ClCompile Include="..\projects\assignment\code\Matrix2d.cpp" />
     <ClCompile Include="..\projects\assignment\code\pch.cpp" />
     <ClCompile Include="..\projects\assignment\code\Shape.cpp" />
     <ClCompile Include="..\projects\assignment\code\Square.cpp" />
+    <ClCompile Include="..\projects\assignment\code\Triangle.cpp" />
     <ClCompile Include="..\projects\assignment\code\Vector2d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\projects\assignment\code\assignmentapp.h" />
+    <ClInclude Include="..\projects\assignment\code\Circle.h" />
     <ClInclude Include="..\projects\assignment\code\Matrix2d.h" />
     <ClInclude Include="..\projects\assignment\code\pch.h" />
     <ClInclude Include="..\projects\assignment\code\Shape.h" />
     <ClInclude Include="..\projects\assignment\code\Square.h" />
+    <ClInclude Include="..\projects\assignment\code\Triangle.h" />
     <ClInclude Include="..\projects\assignment\code\Vector2d.h" />
   </ItemGroup>
   <ItemGroup>

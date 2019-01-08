@@ -26,7 +26,7 @@ public:
 	Vector2d transform(Vector2d& v);
 	Matrix2d transpose();
 	void rotate(float matrixArray[2][2]);
-	Matrix2d rotate2(const float  radians);
+	static Matrix2d rotate2(const float  radians);
 	float radian(float angle);
 	void printOriginalMatrix();
 	void printTranspose();

@@ -20,7 +20,9 @@ public:
 	BaseApp();
 	/// destructor
 	~BaseApp();
-
+	inline Display::Window* getWindow() {
+		return this->window;
+	}
 	/// open app
 	bool Open();
 	/// run app
@@ -69,7 +71,8 @@ public:
 	void PrintText(const char * msg, float x, float y);
 	/// print text at location with size and colour
 	void PrintText(const char * msg, float x, float y, float size, const Colour & colour);
-
+protected:
+	Display::Window* window;
 private:
 	/// renders the collected text 
 	void RenderNanoVG(NVGcontext * vg);
@@ -87,7 +90,7 @@ private:
 	GLuint pixelShader;
 	GLuint vertexBufferObject;
 	int nvFont;
-	Display::Window* window;
+	
 	std::vector<LineData> vertices;	
 	std::vector<TextRow> texts;
 };
