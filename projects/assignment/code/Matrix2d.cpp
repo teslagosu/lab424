@@ -8,10 +8,17 @@ using namespace std;
 //constructors
 Matrix2d::Matrix2d()
 {
-	a = 0;
+	a = 1;
 	b = 0;
 	c = 0;
 	d = 0;
+	e = 1;
+	f = 0;
+	g = 0;
+	h = 0;
+	i = 1;
+	
+	
 }
 Matrix2d::Matrix2d(float a, float b, float c, float d) {
 	
@@ -36,8 +43,15 @@ Matrix2d Matrix2d::operator*(const Matrix2d &m) {
 	Matrix2d result;
 	result.matrixArray[0][0] = matrixArray[0][0] * m.matrixArray[0][0] + matrixArray[1][0] * m.matrixArray[0][1];
 	result.matrixArray[0][1] = matrixArray[0][0] * m.matrixArray[1][0] + matrixArray[1][0] * m.matrixArray[1][1];
+	result.matrixArray[0][2] = matrixArray[0][0] * m.matrixArray[2][0] + matrixArray[1][0] * m.matrixArray[2][1];
+
 	result.matrixArray[1][0] = matrixArray[0][1] * m.matrixArray[0][0] + matrixArray[1][1] * m.matrixArray[0][1];
 	result.matrixArray[1][1] = matrixArray[0][1] * m.matrixArray[1][0] + matrixArray[1][1] * m.matrixArray[1][1];
+	result.matrixArray[1][2] = matrixArray[0][1] * m.matrixArray[2][0] + matrixArray[1][1] * m.matrixArray[2][1];
+
+	result.matrixArray[2][0] = matrixArray[0][2] * m.matrixArray[0][0] + matrixArray[1][2] * m.matrixArray[0][1];
+	result.matrixArray[2][1] = matrixArray[0][2] * m.matrixArray[0][0] + matrixArray[1][2] * m.matrixArray[1][1];
+	result.matrixArray[2][2] = matrixArray[0][2] * m.matrixArray[0][0] + matrixArray[1][2] * m.matrixArray[2][1];
 	return result;
 }
 
@@ -48,6 +62,7 @@ Vector2d Matrix2d::operator*(const Vector2d & v)
 	
 	array.vector2dArray[0] = matrixArray[0][0] * v.vector2dArray[0] + matrixArray[0][1] * v.vector2dArray[1];
 	array.vector2dArray[1] = matrixArray[0][1] * v.vector2dArray[0] + matrixArray[1][1] * v.vector2dArray[1];
+	array.vector2dArray[2] = matrixArray[0][2] * v.vector2dArray[0] + matrixArray[2][1] * v.vector2dArray[1];
 	
 	return array;
 }
@@ -102,6 +117,16 @@ void Matrix2d::rotate(float array[2][2]) {
 	
 	
 }
+
+ Matrix2d Matrix2d:: translationMatrix(Vector2d v) {
+	 Matrix2d result;
+
+	 result.matrixArray[0][2] = v.getXFromArray();
+	 result.matrixArray[1][2] = v.getYFromArray();
+
+	 return result;
+
+ }
 
 float Matrix2d::radian(float angle) {
 	float calculateRadian = (angle * PI / 180);

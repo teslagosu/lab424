@@ -9,7 +9,7 @@ public:
 	Vector2d();
 	// Copy constructor 
 	Vector2d(const Vector2d &v2);
-	float vector2dArray[2];
+	float vector2dArray[3];
 	Vector2d operator+(const Vector2d& v);
 	Vector2d operator-(const Vector2d& v);
 	Vector2d& operator=(const Vector2d &v);

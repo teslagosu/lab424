@@ -9,6 +9,7 @@ Vector2d::Vector2d(float x, float y)
 {
 	this->vector2dArray[0] = x;
 	this->vector2dArray[1] = y;
+	this->vector2dArray[2] = 1;
 }
 
 // Copy constructor 

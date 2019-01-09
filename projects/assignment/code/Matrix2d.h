@@ -7,7 +7,12 @@ private:
 	float b;
 	float c;
 	float d;
-	float matrixArray[2][2];
+	float e;
+	float f;
+	float g;
+	float h;
+	float i;
+	float matrixArray[3][3];
 	float transposeArray[2][2];
 	float rotatedArray[2][2];
 	
@@ -27,6 +32,7 @@ public:
 	Matrix2d transpose();
 	void rotate(float matrixArray[2][2]);
 	static Matrix2d rotate2(const float  radians);
+	Matrix2d translationMatrix(Vector2d v);
 	float radian(float angle);
 	void printOriginalMatrix();
 	void printTranspose();
