@@ -20,10 +20,10 @@ Square::Square(float dimension)
 Square::Square() {
 
 	//test grejer
-	
+	setDimension(setCordinate());
 	Vector2d newVector2d(dimension / 2, dimension / 2);
 	//setters
-	dimension = 0.5f;
+	dimension = 1.0f;
 	
 	setShapeType();
 	setCordinate();
@@ -32,14 +32,14 @@ Square::Square() {
 	offsetY = setCordinate();
 	//punkter för fyrkanten.
 	
-	v1.addXToArray(cordinate * 1 + offsetX);
-	v1.addYToArray(-cordinate * 1 + offsetY);
-	v2.addXToArray(cordinate  * 1 + offsetX);
-	v2.addYToArray(cordinate  * 1 + offsetY);
-	v3.addXToArray(-cordinate * 1 + offsetX);
-	v3.addYToArray(cordinate * 1 + offsetY );
-	v4.addXToArray(-cordinate * 1 +offsetX);
-	v4.addYToArray(-cordinate * 1 + offsetY);
+	v1.addXToArray(-dimension/4 + offsetX);
+	v1.addYToArray(dimension/4 + offsetY);
+	v2.addXToArray(dimension/4 + offsetX);
+	v2.addYToArray(dimension/4 + offsetY);
+	v3.addXToArray(dimension/4 + offsetX);
+	v3.addYToArray(-dimension/4 + offsetY);
+	v4.addXToArray(-dimension/4 + offsetX);
+	v4.addYToArray(-dimension/4 + offsetY);
 
 	Matrix2d mat;
 	mat = mat.rotate2(setCordinate());
@@ -67,36 +67,36 @@ void Square::updatePosition() {
 	
 	
 	
-	linesArray[0].x1 = v1.getXFromArray() + v5.getXFromArray() ;
-	linesArray[0].y1 = v1.getYFromArray() + v5.getYFromArray();
+	linesArray[0].x1 = v5.getXFromArray() ;
+	linesArray[0].y1 = v5.getYFromArray();
 	linesArray[0].c1.b = 1.0f;
 	
-	linesArray[1].x1 = v2.getXFromArray() + v6.getXFromArray();
-	linesArray[1].y1 = v2.getYFromArray() + v6.getYFromArray() ;
+	linesArray[1].x1 = v6.getXFromArray();
+	linesArray[1].y1 = v6.getYFromArray() ;
 	linesArray[1].c1.b = 1.0f;
 	
-	linesArray[2].x1 = v3.getXFromArray() + v7.getXFromArray();
-	linesArray[2].y1 = v3.getYFromArray() + v7.getYFromArray() ;
+	linesArray[2].x1 = v7.getXFromArray();
+	linesArray[2].y1 = v7.getYFromArray() ;
 	linesArray[2].c1.b = 1.0f;
 	
-	linesArray[3].x1 = v4.getXFromArray() + v8.getXFromArray();
-	linesArray[3].y1 = v4.getYFromArray() + v8.getYFromArray();
+	linesArray[3].x1 = v8.getXFromArray();
+	linesArray[3].y1 = v8.getYFromArray();
 	linesArray[3].c1.b = 1.0f;
 	
-	linesArray[0].x2 = v2.getXFromArray() + v6.getXFromArray();
-	linesArray[0].y2 = v2.getYFromArray() + v6.getYFromArray();
+	linesArray[0].x2 = v6.getXFromArray();
+	linesArray[0].y2 = v6.getYFromArray();
 	linesArray[0].c1.b = 1.0f;
 	
-	linesArray[1].x2 = v3.getXFromArray() + v7.getXFromArray() ;
-	linesArray[1].y2 = v3.getYFromArray() + v7.getYFromArray() ;
+	linesArray[1].x2 =  v7.getXFromArray() ;
+	linesArray[1].y2 = v7.getYFromArray() ;
 	linesArray[1].c1.b = 1.0f;
 	
-	linesArray[2].x2 = v4.getXFromArray() + v8.getXFromArray() ;
-	linesArray[2].y2 = v4.getYFromArray() + v8.getYFromArray();
+	linesArray[2].x2 = v8.getXFromArray() ;
+	linesArray[2].y2 = v8.getYFromArray();
 	linesArray[2].c1.b = 1.0f;
 	
-	linesArray[3].x2 = v1.getXFromArray() + v5.getXFromArray();
-	linesArray[3].y2 = v1.getYFromArray() + v5.getYFromArray();
+	linesArray[3].x2 = v5.getXFromArray();
+	linesArray[3].y2 = v5.getYFromArray();
 	linesArray[3].c1.b = 1.0f;
 
 	
