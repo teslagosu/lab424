@@ -33,6 +33,8 @@ Square::Square() {
 	setVelocity(vel);
 	
 	
+	cout << getVelocity().getXFromArray();
+	cout << getVelocity().getYFromArray();
 	
 	offsetX = setCordinate();
 	offsetY = setCordinate();
@@ -52,35 +54,29 @@ Square::Square() {
 	v4.addYToArray(-dimension/4 + offsetY);
 
 	
-	mat.printOriginalMatrix();
-	mat = mat.rotate2((30 * 3.14f) / 180);
-	mat.setPosition(offsetVector);
-	v1 = mat * v1;
-	v2 = mat * v2;
-	v3 = mat * v3;
-	v4 = mat * v4;
 	
-	setRotation(mat);
+	rotation = mat.rotate2((30 * 3.14f) / 180);
+	rotation.setPosition(offsetVector);
+	v1 = rotation * v1;
+	v2 = rotation * v2;
+	v3 = rotation * v3;
+	v4 = rotation * v4;
+	
+	rotation.printOriginalMatrix();
+	
 	
 	v5 = v1;
 	v6 = v2;
 	v7 = v3;
 	v8 = v4;
 
-	cout << "v1 X: "<< v5.getXFromArray() << endl;
-	cout << "v1 Y: "<< v5.getYFromArray() << endl;
-	cout << "v2 X: " << v6.getXFromArray() << endl;
-	cout << "v2 Y: " << v6.getYFromArray() << endl;
-	cout << "v3 X: " << v7.getXFromArray() << endl;
-	cout << "v3 Y: " << v7.getYFromArray() << endl;
-	cout << "v4 X: "<< v8.getXFromArray() << endl;
-	cout << "v4 Y: " << v8.getYFromArray() << endl;
+	
 
 	cout << "offsetVectorX: " << offsetVector.getXFromArray() << endl;
 	cout << "offsetVectorY: " << offsetVector.getYFromArray() << endl;
 
 
-	update();
+	
 	
 }
 
@@ -155,9 +151,13 @@ void Square::render() {
 }
 
 void Square::update() {
-
-	velocity = velocity + mat.getPosition();
-	mat.setPosition(velocity);
+	Vector2d test(0.4, 0.4);
+	velocity = velocity +test;
+	rotation.setPosition(rotation.getPosition() + getVelocity());
+	//velocity = velocity + rotation.getPosition();
+	
+	
+	
 	/*if (rotation.getPosition().getXFromArray() > 1) {
 		Vector2d n(-1, 0);
 		Vector2d v;
@@ -179,7 +179,6 @@ void Square::update() {
 		v.addXToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getXFromArray());
 		v.addYToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getYFromArray());
 		velocity = getVelocity() - v;
-
 	}
 	else if (rotation.getPosition().getYFromArray() < -1) {
 		Vector2d n(0, 1);
@@ -228,5 +227,3 @@ void Square::setShapeType()
 {
 	this->shapeType = 1;
 }
-
-

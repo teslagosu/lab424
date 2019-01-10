@@ -31,8 +31,13 @@ Matrix2d::Matrix2d(float a, float b, float c, float d) {
 Matrix2d::Matrix2d(const Matrix2d &m) {
 	matrixArray[0][0] = m.matrixArray[0][0];
 	matrixArray[0][1] = m.matrixArray[0][1];
+	matrixArray[0][2] = m.matrixArray[0][1];
 	matrixArray[1][0] = m.matrixArray[1][0];
 	matrixArray[1][1] = m.matrixArray[1][1];
+	matrixArray[1][2] = m.matrixArray[1][2];
+	matrixArray[2][0] = m.matrixArray[2][0];
+	matrixArray[2][1] = m.matrixArray[2][1];
+	matrixArray[2][2] = m.matrixArray[2][2];
 }
 //destructor
 Matrix2d::~Matrix2d()
@@ -229,11 +234,9 @@ void Matrix2d::setPosition(Vector2d v)
 
 Vector2d Matrix2d::getPosition()
 {
-	Vector2d v;
-	v.addXToArray(this->matrixArray[0][2]);
-	v.addYToArray(this->matrixArray[1][2]);
-	return Vector2d();
+	Vector2d ve;
+	ve.addXToArray(this->matrixArray[0][2]);
+	ve.addYToArray(this->matrixArray[1][2]);
+	
+	return ve;
 }
-
-
-
