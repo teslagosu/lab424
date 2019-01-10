@@ -24,7 +24,7 @@ public:
 	Matrix2d(const Matrix2d &m);
 	~Matrix2d();
 	
-	void printEverything();
+	
 	Matrix2d operator*(const Matrix2d &v);
 	Vector2d operator*(const Vector2d &v);
 	Matrix2d& operator=(const Matrix2d &v);
@@ -46,6 +46,8 @@ public:
 	float getC();
 	void setD(float d);
 	float getD();
+	void setPosition(Vector2d v);
+	Vector2d getPosition();
 	
 	
 };

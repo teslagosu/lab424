@@ -8,15 +8,15 @@ using namespace std;
 //constructors
 Matrix2d::Matrix2d()
 {
-	a = 1;
-	b = 0;
-	c = 0;
-	d = 0;
-	e = 1;
-	f = 0;
-	g = 0;
-	h = 0;
-	i = 1;
+	this->matrixArray[0][0] = 1;
+	this->matrixArray[0][1] = 0;
+	this->matrixArray[0][2] = 0;
+	this->matrixArray[1][0] = 0;
+	this->matrixArray[1][1] = 1;
+	this->matrixArray[1][2] = 0;
+	this->matrixArray[2][0] = 0;
+	this->matrixArray[2][1] = 0;
+	this->matrixArray[2][2] = 1;
 	
 	
 }
@@ -60,9 +60,11 @@ Vector2d Matrix2d::operator*(const Vector2d & v)
 {
 	Vector2d array;
 	
-	array.vector2dArray[0] = matrixArray[0][0] * v.vector2dArray[0] + matrixArray[0][1] * v.vector2dArray[1];
-	array.vector2dArray[1] = matrixArray[0][1] * v.vector2dArray[0] + matrixArray[1][1] * v.vector2dArray[1];
-	array.vector2dArray[2] = matrixArray[0][2] * v.vector2dArray[0] + matrixArray[2][1] * v.vector2dArray[1];
+	array.vector2dArray[0] = matrixArray[0][0] * v.vector2dArray[0] + matrixArray[0][1] * v.vector2dArray[1] ;
+	array.vector2dArray[1] = matrixArray[1][0] * v.vector2dArray[0] + matrixArray[1][1] * v.vector2dArray[1] ;
+	array.vector2dArray[2] = matrixArray[2][0] * v.vector2dArray[0] + matrixArray[2][1] * v.vector2dArray[1];
+
+	
 	
 	return array;
 }
@@ -146,9 +148,9 @@ float Matrix2d::roundDec(float f, int precision) {
 void Matrix2d::printOriginalMatrix() {
 
 	cout << "Matrix2d Original" << endl;
-	for (int i = 0; i < 2; ++i) {
+	for (int i = 0; i < 3; ++i) {
 		cout << "[ ";
-		for (int j = 0; j < 2; ++j) {
+		for (int j = 0; j < 3; ++j) {
 			cout << " " << matrixArray[i][j];
 			cout << " ";
 		}
@@ -216,6 +218,21 @@ void Matrix2d::setD(float d)
 float Matrix2d::getD()
 {
 	return d;
+}
+
+void Matrix2d::setPosition(Vector2d v)
+{
+	this->matrixArray[0][2] = v.getXFromArray();
+	this->matrixArray[1][2] = v.getYFromArray();
+	
+}
+
+Vector2d Matrix2d::getPosition()
+{
+	Vector2d v;
+	v.addXToArray(this->matrixArray[0][2]);
+	v.addYToArray(this->matrixArray[1][2]);
+	return Vector2d();
 }
 
 

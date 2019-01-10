@@ -17,10 +17,10 @@ using namespace std;
 
 
 
-Square sq;
+Square square;
 
 
-Circle circle(0);
+
 
 
 namespace Assignment
@@ -65,6 +65,7 @@ int AssignmentApp::getIndex(int num)
 void AssignmentApp::KeyEvent(int key, int action, int modifier)
 {
 	
+	
 	// does something with the key. action == 1 means key has been pressed
 	if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_1) {
@@ -74,9 +75,10 @@ void AssignmentApp::KeyEvent(int key, int action, int modifier)
 
 			
 			for (auto v : shapeList) {
+				v->updatePosition();
 				
-				v->updatePosition();
-				v->updatePosition();
+				
+				
 				
 			}
 			}
@@ -168,16 +170,17 @@ AssignmentApp::Setup()
 //------------------------------------------------------------------------------
 /**
 */
-void
-AssignmentApp::Update()
+void AssignmentApp::Update()
 {
 	
 	for (auto v : shapeList) {
+		
+		v->update();
 		v->render();
-		v->updatePosition();
 		
 		
 	}
+	
 	
 
 	

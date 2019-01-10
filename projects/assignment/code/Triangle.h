@@ -14,6 +14,10 @@ private:
 	Vector2d v4;
 	Vector2d v5;
 	Vector2d v6;
+	Vector2d v7;
+	Vector2d v8;
+	Vector2d v9;
+	
 	float cordinate;
 	float random;
 	int shapeType;
@@ -32,6 +36,7 @@ public:
 	float setCordinate();
 	int getShapeType();
 	void setShapeType();
+	void update();
 	
 };
 

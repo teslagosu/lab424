@@ -30,5 +30,7 @@ public:
 	float setCordinate();
 	int getShapeType();
 	void setShapeType();
+	int getColor();
+	void update();
 };
 

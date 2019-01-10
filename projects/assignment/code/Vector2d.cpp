@@ -17,11 +17,14 @@ Vector2d::Vector2d(const Vector2d &v2) {
 	
 	this->vector2dArray[0] = v2.vector2dArray[0];
 	this->vector2dArray[1] = v2.vector2dArray[1];
+	this->vector2dArray[2] = v2.vector2dArray[2];
 }
 
 //Constructor standard
 Vector2d::Vector2d() {
-	
+	this->vector2dArray[0] = 0;
+	this->vector2dArray[1] = 0;
+	this->vector2dArray[2] = 1;
 
 }
 //prints x and y 

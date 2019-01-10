@@ -18,6 +18,7 @@ private:
 	Vector2d v8;
 
 	Matrix2d matrixSquare;
+	Matrix2d mat;
 	float cordinate;
 	float random;
 	float minNum;
@@ -38,6 +39,8 @@ public:
 	int getShapeType();
 	void setShapeType();
 	Vector2d newVector2d;
+	
+	void update();
 	
 };
 

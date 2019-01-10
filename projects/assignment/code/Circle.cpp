@@ -17,6 +17,7 @@ Circle::Circle() {
 	setRadius(setCordinate());
 	setShapeType();
 	setCordinate();
+	setColour();
 	float offsetX = setCordinate();
 	float offsetY = setCordinate();
 	
@@ -79,28 +80,49 @@ void Circle::updatePosition() {
 
 	linesArray[0].x1 = v1.getXFromArray();
 	linesArray[0].y1 = v1.getYFromArray();
-	linesArray[0].c1.r = 1;
+	linesArray[0].c1.r = getRed();
+	linesArray[0].c1.b = getBlue();
+	linesArray[0].c1.g = getGreen();
+
 	linesArray[1].x1 = v2.getXFromArray();
 	linesArray[1].y1 = v2.getYFromArray();
-	linesArray[1].c1.r = 1;
+	linesArray[1].c1.r = getRed();
+	linesArray[1].c1.b = getBlue();
+	linesArray[1].c1.g = getGreen();
 	linesArray[2].x1 = v3.getXFromArray();
 	linesArray[2].y1 = v3.getYFromArray();
-	linesArray[2].c1.r = 1;
+	linesArray[2].c1.r = getRed();
+	linesArray[2].c1.b = getBlue();
+	linesArray[2].c1.g = getGreen();
 	linesArray[3].x1 = v4.getXFromArray();
 	linesArray[3].y1 = v4.getYFromArray();
-	linesArray[3].c1.r = 1;
+	linesArray[3].c1.r = getRed();
+	linesArray[3].c1.b = getBlue();
+	linesArray[3].c1.g = getGreen();
+
 	linesArray[4].x1 = v5.getXFromArray();
 	linesArray[4].y1 = v5.getYFromArray();
-	linesArray[4].c1.r = 1;
+	linesArray[4].c1.r = getRed();
+	linesArray[4].c1.b = getBlue();
+	linesArray[4].c1.g = getGreen();
+
 	linesArray[5].x1 = v6.getXFromArray();
 	linesArray[5].y1 = v6.getYFromArray();
-	linesArray[5].c1.r = 1;
+	linesArray[5].c1.r = getRed();
+	linesArray[5].c1.b = getBlue();
+	linesArray[5].c1.g = getGreen();
+
 	linesArray[6].x1 = v7.getXFromArray();
 	linesArray[6].y1 = v7.getYFromArray();
-	linesArray[6].c1.r = 1;
+	linesArray[6].c1.r = getRed();
+	linesArray[6].c1.b = getBlue();
+	linesArray[6].c1.g = getGreen();
+
 	linesArray[7].x1 = v8.getXFromArray();
 	linesArray[7].y1 = v8.getYFromArray();
-	linesArray[7].c1.r = 1;
+	linesArray[7].c1.r = getRed();
+	linesArray[7].c1.b = getBlue();
+	linesArray[7].c1.g = getGreen();
 
 	linesArray[0].x2 = v2.getXFromArray();
 	linesArray[0].y2 = v2.getYFromArray();
@@ -118,6 +140,8 @@ void Circle::updatePosition() {
 	linesArray[6].y2 = v8.getYFromArray();
 	linesArray[7].x2 = v1.getXFromArray();
 	linesArray[7].y2 = v1.getYFromArray();
+
+	
 
 }
 //function that renders the square.
@@ -137,6 +161,16 @@ float Circle::getRadius()
 {
 	return radius;
 }
+int Circle::getColor() {
+	int r = ((double)rand() / (RAND_MAX)) + 1;
+	return r;
+}
+
+void Circle::update()
+{
+
+}
+
 
 float Circle::setCordinate()
 {

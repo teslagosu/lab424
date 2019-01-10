@@ -20,17 +20,27 @@ Square::Square(float dimension)
 Square::Square() {
 
 	//test grejer
+	
 	setDimension(setCordinate());
 	Vector2d newVector2d(dimension / 2, dimension / 2);
 	//setters
 	dimension = 1.0f;
-	
+	setPosition(newVector2d);
+	setColour();
 	setShapeType();
 	setCordinate();
+	Vector2d vel(0.005, 0.005);
+	setVelocity(vel);
+	
+	
 	
 	offsetX = setCordinate();
 	offsetY = setCordinate();
+
+	Vector2d offsetVector(offsetX, offsetY);
 	//punkter för fyrkanten.
+	
+	
 	
 	v1.addXToArray(-dimension/4 + offsetX);
 	v1.addYToArray(dimension/4 + offsetY);
@@ -41,16 +51,36 @@ Square::Square() {
 	v4.addXToArray(-dimension/4 + offsetX);
 	v4.addYToArray(-dimension/4 + offsetY);
 
-	Matrix2d mat;
-	mat = mat.rotate2(setCordinate());
-	v5 = mat * v1;
-	v6 = mat * v2;
-	v7 = mat * v3;
-	v8 = mat * v4;
 	
-	cout << newVector2d.getXFromArray() + v5.getXFromArray() << endl;
-	cout << newVector2d.getYFromArray() + v5.getYFromArray()<< endl;
+	mat.printOriginalMatrix();
+	mat = mat.rotate2((30 * 3.14f) / 180);
+	mat.setPosition(offsetVector);
+	v1 = mat * v1;
+	v2 = mat * v2;
+	v3 = mat * v3;
+	v4 = mat * v4;
 	
+	setRotation(mat);
+	
+	v5 = v1;
+	v6 = v2;
+	v7 = v3;
+	v8 = v4;
+
+	cout << "v1 X: "<< v5.getXFromArray() << endl;
+	cout << "v1 Y: "<< v5.getYFromArray() << endl;
+	cout << "v2 X: " << v6.getXFromArray() << endl;
+	cout << "v2 Y: " << v6.getYFromArray() << endl;
+	cout << "v3 X: " << v7.getXFromArray() << endl;
+	cout << "v3 Y: " << v7.getYFromArray() << endl;
+	cout << "v4 X: "<< v8.getXFromArray() << endl;
+	cout << "v4 Y: " << v8.getYFromArray() << endl;
+
+	cout << "offsetVectorX: " << offsetVector.getXFromArray() << endl;
+	cout << "offsetVectorY: " << offsetVector.getYFromArray() << endl;
+
+
+	update();
 	
 }
 
@@ -63,44 +93,48 @@ Square::~Square()
 //function that updates position
 void Square::updatePosition() {
 	
+	linesArray[0].x1 = v5.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[0].y1 = v5.getYFromArray() + getVelocity().getYFromArray();
+	linesArray[0].c2.b = getBlue();
+	linesArray[0].c2.r = getRed();
+	linesArray[0].c2.g = getGreen();
+	
+	linesArray[1].x1 = v6.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[1].y1 = v6.getYFromArray() + getVelocity().getYFromArray();
+	linesArray[1].c2.b = getBlue();			
+	linesArray[1].c2.r = getRed();			
+	linesArray[1].c2.g = getGreen();		
+											
+	linesArray[2].x1 = v7.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[2].y1 = v7.getYFromArray() + getVelocity().getYFromArray();
+	linesArray[2].c2.b = getBlue();
+	linesArray[2].c2.r = getRed();
+	linesArray[2].c2.g = getGreen();
+	
+	linesArray[3].x1 = v8.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[3].y1 = v8.getYFromArray() + getVelocity().getYFromArray();
+	linesArray[3].c2.b = getBlue();			
+	linesArray[3].c2.r = getRed();			
+	linesArray[3].c2.g = getGreen();		
+											
+	linesArray[0].x2 = v6.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[0].y2 = v6.getYFromArray() + getVelocity().getYFromArray();
+											
+											
+	linesArray[1].x2 =  v7.getXFromArray() +getVelocity().getXFromArray();
+	linesArray[1].y2 = v7.getYFromArray() + getVelocity().getYFromArray();
+											
+											
+	linesArray[2].x2 = v8.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[2].y2 = v8.getYFromArray() + getVelocity().getYFromArray();
+											
+											
+	linesArray[3].x2 = v5.getXFromArray() + getVelocity().getXFromArray();
+	linesArray[3].y2 = v5.getYFromArray() + getVelocity().getYFromArray();
 	
 	
 	
 	
-	linesArray[0].x1 = v5.getXFromArray() ;
-	linesArray[0].y1 = v5.getYFromArray();
-	linesArray[0].c1.b = 1.0f;
-	
-	linesArray[1].x1 = v6.getXFromArray();
-	linesArray[1].y1 = v6.getYFromArray() ;
-	linesArray[1].c1.b = 1.0f;
-	
-	linesArray[2].x1 = v7.getXFromArray();
-	linesArray[2].y1 = v7.getYFromArray() ;
-	linesArray[2].c1.b = 1.0f;
-	
-	linesArray[3].x1 = v8.getXFromArray();
-	linesArray[3].y1 = v8.getYFromArray();
-	linesArray[3].c1.b = 1.0f;
-	
-	linesArray[0].x2 = v6.getXFromArray();
-	linesArray[0].y2 = v6.getYFromArray();
-	linesArray[0].c1.b = 1.0f;
-	
-	linesArray[1].x2 =  v7.getXFromArray() ;
-	linesArray[1].y2 = v7.getYFromArray() ;
-	linesArray[1].c1.b = 1.0f;
-	
-	linesArray[2].x2 = v8.getXFromArray() ;
-	linesArray[2].y2 = v8.getYFromArray();
-	linesArray[2].c1.b = 1.0f;
-	
-	linesArray[3].x2 = v5.getXFromArray();
-	linesArray[3].y2 = v5.getYFromArray();
-	linesArray[3].c1.b = 1.0f;
-
-	
-
 
 
 	
@@ -118,6 +152,45 @@ void Square::render() {
 		
 	
 
+}
+
+void Square::update() {
+
+	velocity = velocity + mat.getPosition();
+	mat.setPosition(velocity);
+	/*if (rotation.getPosition().getXFromArray() > 1) {
+		Vector2d n(-1, 0);
+		Vector2d v;
+		v.addXToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getXFromArray());
+		v.addYToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getYFromArray());
+		velocity = getVelocity() - v;
+	}
+	else if(rotation.getPosition().getXFromArray() < -1){
+		Vector2d n(1, 0);
+		Vector2d v;
+		v.addXToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getXFromArray());
+		v.addYToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getYFromArray());
+		velocity = getVelocity() - v;
+		
+	}
+	else if (rotation.getPosition().getYFromArray() > 1) {
+		Vector2d n(0, -1);
+		Vector2d v;
+		v.addXToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getXFromArray());
+		v.addYToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getYFromArray());
+		velocity = getVelocity() - v;
+
+	}
+	else if (rotation.getPosition().getYFromArray() < -1) {
+		Vector2d n(0, 1);
+		Vector2d v;
+		v.addXToArray(getVelocity().getDotProduct(getVelocity(), n) * 2 * n.getXFromArray());
+		v.addYToArray(getVelocity().getDotProduct(velocity, n) * 2 * n.getYFromArray());
+		velocity = getVelocity() - v;
+		
+	}
+	*/
+	
 }
 
 //getter that returns the dimension.
@@ -155,3 +228,5 @@ void Square::setShapeType()
 {
 	this->shapeType = 1;
 }
+
+
