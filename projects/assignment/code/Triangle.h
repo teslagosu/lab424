@@ -17,7 +17,8 @@ private:
 	Vector2d v7;
 	Vector2d v8;
 	Vector2d v9;
-	
+	Vector2d offsetVector;
+	Matrix2d mat;
 	float cordinate;
 	float random;
 	int shapeType;

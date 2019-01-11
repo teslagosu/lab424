@@ -18,8 +18,8 @@ Shape::~Shape()
 {
 }
 
-Vector2d Shape::setVelocity(const Vector2d& newVelocity) {
-	return this->velocity = newVelocity;
+void Shape::setVelocity(const Vector2d& newVelocity) {
+	this->velocity = newVelocity;
 }
 
 Vector2d Shape::getVelocity() {
@@ -90,7 +90,17 @@ int Shape::randomColour() {
 	return r;
 }
 
+/*void Shape::setCircle(Circle s)
+{
+	this->circle = s;
+}
 
+Circle Shape::getCircle()
+{
+	return circle;
+}
+
+*/
 
 
 

@@ -20,12 +20,16 @@ Matrix2d::Matrix2d()
 	
 	
 }
-Matrix2d::Matrix2d(float a, float b, float c, float d) {
+Matrix2d::Matrix2d(float a, float b, float c, float d, float e, float f, float g,float h) {
 	
 	this->matrixArray[0][0] = a;
 	this->matrixArray[0][1] = b;
 	this->matrixArray[1][0] = c;
 	this->matrixArray[1][1] = d;
+	this->matrixArray[1][2] = e;
+	this->matrixArray[2][0] = f;
+	this->matrixArray[2][1] = g;
+	this->matrixArray[2][2] = h;
 }
 //copy constructor
 Matrix2d::Matrix2d(const Matrix2d &m) {
@@ -117,8 +121,6 @@ void Matrix2d::rotate(float array[2][2]) {
 	result.matrixArray[0][1] =  sin(radians);
 	result.matrixArray[1][0] = -sin(radians);
 	result.matrixArray[1][1] = cos(radians);
-	
-		
 
 	return result;
 	

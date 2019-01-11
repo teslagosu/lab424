@@ -36,6 +36,7 @@ public:
 
 	std::vector<Shape*> getShapeList();
 	int getIndex(int num);
+	bool isShapesTouching();
 
 private:
 

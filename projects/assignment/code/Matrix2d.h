@@ -20,7 +20,7 @@ private:
 public:
 	float PI = 3.14159265359;
 	Matrix2d();
-	Matrix2d(float a, float b, float c, float d);
+	Matrix2d(float a, float b, float c, float d, float e, float f, float g, float h);
 	Matrix2d(const Matrix2d &m);
 	~Matrix2d();
 	

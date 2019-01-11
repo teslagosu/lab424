@@ -25,6 +25,7 @@ public:
 	float getNormalizeOfVector(Vector2d& v1);
 	void printEverything();
 	void printLength(Vector2d& v);
+	float distance(Vector2d v1, Vector2d v2);
 
 };
 

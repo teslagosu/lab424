@@ -113,6 +113,12 @@ float Vector2d::getYFromArray() {
 	return vector2dArray[1];
 }
 
+float Vector2d::distance(Vector2d v1, Vector2d v2){	
+	float result = sqrt(pow(v2.getXFromArray() - v1.getXFromArray(), 2) + pow(v2.getYFromArray() - v1.getYFromArray(), 2) * 1.0);
+	// Calculating distance 
+	return result;
+}
+
 
 
 

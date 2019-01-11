@@ -16,9 +16,11 @@ private:
 	Vector2d v6;
 	Vector2d v7;
 	Vector2d v8;
-
+	Vector2d offsetVector;
+	Vector2d x;
 	Matrix2d matrixSquare;
 	Matrix2d mat;
+
 	float cordinate;
 	float random;
 	float minNum;

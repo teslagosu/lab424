@@ -5,6 +5,7 @@
 
 
 
+
 class Shape
 {
 private:
@@ -13,6 +14,7 @@ private:
 	int red;
 	int blue;
 	int green;
+	//Circle circle;
 	
 public:
 	Shape();
@@ -29,7 +31,7 @@ public:
 	Vector2d getPosition();
 	void setRotation(const Matrix2d& newRotation);
 	Matrix2d getRotation();
-	Vector2d setVelocity(const Vector2d& newVelocity);
+	void setVelocity(const Vector2d& newVelocity);
 	Vector2d getVelocity();
 	virtual int getShapeType() = 0;
 	virtual void setShapeType() = 0;
@@ -41,6 +43,9 @@ public:
 	void setGreen(int g);
 	int getGreen();
 	int randomColour();
+
+	//void setCircle(Circle s);
+	//Circle getCircle();
 	
 
 
